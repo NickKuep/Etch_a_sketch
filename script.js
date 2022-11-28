@@ -1,3 +1,5 @@
+color = "black";
+
 //create a variable grid div that will be the canvas for the etch_a_sketch
 function generateCanvas(size) {
   let canvas = document.querySelector(".canvas");
@@ -11,9 +13,7 @@ function generateCanvas(size) {
     let gridDiv = document.createElement("div");
     gridDiv.style.backgroundColor = "white";
     canvas.insertAdjacentElement("beforeend", gridDiv);
-    gridDiv.addEventListener("mouseover", () => {
-      gridDiv.style.backgroundColor = "black";
-    });
+    gridDiv.addEventListener("mouseover", colorDiv);
   }
 }
 generateCanvas(16);
@@ -28,9 +28,22 @@ slider.oninput = function () {
   generateCanvas(sliderValue);
 };
 
-//on hover effect that color the div black
+//on hover effect that colors the divs black
 function colorDiv() {
-  gridDiv.addEventListener("mouseover", () => {
-    gridDiv.style.backgroundColor = "black";
-  });
+  if (color === "rainbow") {
+    this.style.backgroundColor =
+      "#" + (((1 << 24) * Math.random()) | 0).toString(16);
+    //hover effect rgb
+    console.log("im getting here.");
+  } else {
+    this.style.backgroundColor = color;
+  }
+}
+
+function colorSelector(choice) {
+  color = choice;
+}
+
+function resetCanvas() {
+  generateCanvas(sliderValue);
 }
