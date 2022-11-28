@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+}
+
+.selectors {
+  display: flex;
+  flex-direction: column;
+}
+
+.canvas {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  border: solid 1px;
+}
